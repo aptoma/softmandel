@@ -2,6 +2,32 @@
 
 SOFTware MANagement and DEveLopment Standards in Aptoma.
 
+- [Development](#development)
+	- [Versioning](#versioning)
+		- [The basics of semantic versioning](#the-basics-of-semantic-versioning)
+	- [Source Control](#source-control)
+		- [Naming repositories](#naming-repositories)
+		- [Branches](#branches)
+	- [Technology and tools](#technology-and-tools)
+		- [Backend](#backend)
+			- [Testing](#testing)
+			- [Persistent storage (ie. DB)](#persistent-storage-ie-db)
+		- [Frontend](#frontend)
+			- [Transpiling](#transpiling)
+			- [Browser support](#browser-support)
+			- [Testing](#testing-1)
+	- [Testing](#testing-2)
+	- [Mess Detection](#mess-detection)
+	- [Continuous Integration](#continuous-integration)
+		- [Build tools](#build-tools)
+	- [Technical Design](#technical-design)
+		- [Multitenancy](#multitenancy)
+		- [Project participants](#project-participants)
+		- [Code review](#code-review)
+- [Deployment](#deployment)
+	- [Installation Types](#installation-types)
+	- [Process](#process)
+
 ## Development
 
 ### Versioning
