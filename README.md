@@ -46,14 +46,14 @@ All repositories should have a remote on Github.
 #### Naming repositories
 Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated.
 
-For repositories that are closely tied to a website, ie. blog.aptoma.com, use the domain name as the repository name, for all other repositories, separate words with dashes, ie. silex-bootstrap and node-github-downloader.
+For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use the domain name as the repository name, for all other repositories, separate words with dashes, ie. `silex-bootstrap` and `node-github-downloader`.
 
-Be wary of including your product name in a repo that is not actually coupled to your product. Ie., if you create a lib that upload files to CDN, don’t call it drfront-cdn-uploader, but rather cdn-uploader. Of course, if your library is tied to a product, including the name is warranted, ie. drlib-rest-client.
+Be wary of including your product name in a repo that is not actually coupled to your product. Ie., if you create a lib that upload files to CDN, don’t call it `drfront-cdn-uploader`, but rather `cdn-uploader`. Of course, if your library _is_ tied to a product, including the name is warranted, ie. `drlib-rest-client`.
 
 #### Branches
-Every repository will have a master branch.
+Every repository will have a `master` branch.
 
-If your workflow requires multiple branches, the recommended practice is to have the branches master and develop, where master always reflects the most recent deployed version, and develop is the main development branch.
+If your workflow requires multiple branches, the recommended practice is to have the branches `master` and `develop`, where master always reflects the most recent deployed version, and develop is the main development branch.
 
 Any branch that is not master or develop is a feature branch, and should have a descriptive name. All feature branches should be based off of develop, and merged back into develop when done.
 
