@@ -5,6 +5,7 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 - [Development](#development)
 	- [Versioning](#versioning)
 		- [The basics of semantic versioning](#the-basics-of-semantic-versioning)
+	- [Coding Style](#coding-style)
 	- [Source Control](#source-control)
 		- [Naming repositories](#naming-repositories)
 		- [Branches](#branches)
@@ -37,6 +38,9 @@ If versioning is used in software, it should follow the [Semantic Versioning Sta
 Consider a version format of X.Y.Z (Major.Minor.Patch). Bug fixes not affecting the API increment the patch version, backwards compatible API additions/changes increment the minor version, and backwards incompatible API changes increment the major version.
 
 For more details about semantic version see [http://semver.org/](http://semver.org/)
+
+### Coding Style
+All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
 ### Source Control
 All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
