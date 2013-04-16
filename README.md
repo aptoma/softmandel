@@ -176,18 +176,13 @@ The need for staging environments will vary from product to product, and possibl
 
 The only hard requirement is that your application is able to provide different environments, in effect meaning that no special environment config is hard coded throughout the application.
 
-**Sandbox** is the place where can play around.
-
-It should serve two purposes:
-
-1. Allow us to deploy new features in a production like environment without affecting users (ie. to verify that a library or config works on production hardware, not just locally)
-2. Allow other internal teams to experiment with integrations (ie. create test articles for DrPublish to show in DrFront/DrMobile/etc)
+**Sandbox** is the place where can play around. The sandbox allows other internal teams to experiment with integrations in a production like environment without affecting users (ie. create test articles for DrPublish to show in DrFront/DrMobile/etc).
 
 The sandbox environment may also be used in close collaboration with bleeding edge customers that we do co-development with.
 
 In a multi-tenant design, the sandbox install might be “just another customer”, possibly present in both production and staging.
 
-Demo should run the most recent demoable version, and only contain content that is suitable for
+**Demo** should run the most recent demoable version, and only contain content that is suitable for
 display in product demos for C-level executives. In a multi-tenant design, the demo install will most likely be “just another customer”.
 
 ### Process
