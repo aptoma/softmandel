@@ -42,6 +42,8 @@ For more details about semantic version see [http://semver.org/](http://semver.o
 ### Coding Style
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
+For other languages you must conform to some defined coding style preferably with one that has tools.
+
 ### Source Control
 All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
 
@@ -108,7 +110,7 @@ When adding support for additional browsers infers very little overhead, we shou
 [Karma](http://karma-runner.github.com/)/[Mocha](http://visionmedia.github.com/mocha/)/[Chai](http://chaijs.com/)/[Sinon](http://sinonjs.org/) seems to be the best combo ATM but since its an evolving technology it may change in very near future.
 
 ### Testing
-All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. 70% code coverage is considered the minimum acceptable level. Any less than this is to be considered has high interest technical debt.
+All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. The recommended minimum level of code coverage is 70%.
 
 It is recommended that all projects have functional tests covering the main usage of the service.
 
