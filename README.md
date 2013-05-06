@@ -42,7 +42,11 @@ For more details about semantic version see [http://semver.org/](http://semver.o
 ### Coding Style
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
-For other languages you must conform to some defined coding style preferably with one that has tools.
+For other languages you must conform to some defined coding style, preferably 
+with one that has tools. Here are a few recommendations:
+
+* Twig: http://twig.sensiolabs.org/doc/coding_standards.html
+* Ruby: https://github.com/bbatsov/ruby-style-guide
 
 ### Source Control
 All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
