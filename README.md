@@ -48,17 +48,23 @@ with one that has tools. Here are a few recommendations:
 * Twig: http://twig.sensiolabs.org/doc/coding_standards.html
 * Ruby: https://github.com/bbatsov/ruby-style-guide
 
+Suggested style guides for other languages
+
+- Ruby [https://github.com/bbatsov/ruby-style-guide](https://github.com/bbatsov/ruby-style-guide)
+
 ### Source Control
 All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
 
 All repositories should have a remote on Github.
 
 #### Naming repositories
-Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated.
+Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated. It is important that all repositories has a description that explains the purpose to make it easier for others to find things e.g for DrFront `Web application for front page production`.
 
 For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use the domain name as the repository name, for all other repositories, separate words with dashes, ie. `silex-bootstrap` and `node-github-downloader`.
 
 Be wary of including your product name in a repo that is not actually coupled to your product. Ie., if you create a lib that upload files to CDN, don’t call it `drfront-cdn-uploader`, but rather `cdn-uploader`. Of course, if your library _is_ tied to a product, including the name is warranted, ie. `drlib-rest-client`.
+
+The name of a library should reflects it's purpose e.g `cdn-uploader`.
 
 #### Branches
 Every repository will have a `master` branch.
