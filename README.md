@@ -25,6 +25,9 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 		- [Multitenancy](#multitenancy)
 		- [Project participants](#project-participants)
 		- [Code review](#code-review)
+	- [Refactoring](#refactoring)
+	    - [Opportunistic Refactoring](#opportunistic-refactoring)
+	    - [Scheduled Refactoring](#scheduled-refactoring)
 - [Deployment](#deployment)
 	- [Installation Types](#installation-types)
 	- [Process](#process)
@@ -163,6 +166,22 @@ Designing and working alone on significant software project is not good. If this
 
 #### Code review
 Commits should always be read and reflected on by another developer within reasonable time.
+
+### Refactoring
+
+#### Opportunistic Refactoring
+
+Refactoring should be part of the daily workflow. A good practice to follow is the boy-scout rule:
+
+> always leave the code behind in a better state than you found it
+
+More details and advice is found at [Martin Fowler's Bliki](http://martinfowler.com/bliki/OpportunisticRefactoring.html)
+
+#### Scheduled Refactoring
+
+When a larger refactoring project is needed, participants from other projects
+should be involved both at the start and at the end of the project, in order to
+get different perspectives and shared learning opportunities.
 
 ## Deployment
 
