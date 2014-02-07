@@ -56,6 +56,8 @@ All projects should use GIT for version control. Any deviation from this should 
 
 All repositories should have a remote on Github.
 
+All repositories should have a README.md to explain the purpose of the repo. If your repository is open for contributions from non-team members, or there's important factors not covered by SOFT MANDEL, you should also include a CONTRIBUTING.md to explain guidelines for contributing.
+
 #### Naming repositories
 Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated. It is important that all repositories has a description that explains the purpose to make it easier for others to find things e.g for DrFront `Web application for front page production`.
 
