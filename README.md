@@ -144,7 +144,7 @@ We recommend using [PHPCPD](https://github.com/sebastianbergmann/phpcpd) for Cop
 Default configuration files for both PHPMD and JSHint is available at [https://github.com/aptoma/aptoma-bootstrap](https://github.com/aptoma/aptoma-bootstrap)
 
 ### Continuous Integration
-All projects that has some sorts of tests (e.g PHPUnit, linting, mess detection) shall be integrated with an continuous integration server. We suggest using jenkins.aptoma.com that runs Jenkins but the project owners are free to choose another option if they see fit.
+All projects that has some sorts of tests (e.g PHPUnit, linting, mess detection) shall be integrated with an continuous integration server. We suggest using [Travis CI](https://magnum.travis-ci.com/), where we have a pro account.
 
 The use of other CI solutions shall be coordinated with AMP.
 
