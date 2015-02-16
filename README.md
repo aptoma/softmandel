@@ -45,24 +45,24 @@ For more details about semantic version see [http://semver.org/](http://semver.o
 
 ### Release notes
 
-Every versioned release should have release notes detailing the changes, additons, removals and fixes contained in the release. Release notes should use the following terms to describe changes.
+Every versioned release should have release notes detailing the changes, additions, removals and fixes contained in the release. Release notes should use the following terms to describe changes:
 
-| Keyword|Description|
-|--------|-----------|
-|Added | Descriptions of new features. Try to keep it brief. If any additional information is required, add it to the "Notes" section.|
-|Changed|Information about alterations done to existing features. Be explicit about the difference between old and new behavior.|
-|Removed|Information about features which have been removed. Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else.|
-|Improved|Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category.|
-|Fixed|Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed".|
-|Notes|Additional information about something covered in one of the other points. A typical example might be instructions for a new feature or details regarding an altered workflow.|
-|Developer Notes|Additional information which might be useful for the customer's developers and is related to a change in this version. Typical examples are changes made to public APIs, or alterations to how the system handles custom skins or scripts.|
+| Keyword         | Description |
+|-----------------|-------------|
+| Added           | Descriptions of new features. Try to keep it brief. If any additional information is required, add it to the "Notes" section. |
+| Changed         | Information about alterations done to existing features. Be explicit about the difference between old and new behavior. |
+| Removed         | Information about features which have been removed. Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else. |
+| Improved        | Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category. |
+| Fixed           | Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed". |
+| Notes           | Additional information about something covered in one of the other points. A typical example might be instructions for a new feature or details regarding an altered workflow. |
+| Developer Notes | Additional information which might be useful for the customer's developers and is related to a change in this version. Typical examples are changes made to public APIs, or alterations to how the system handles custom skins or scripts. |
 
 #### Other guidelines
 Both "Notes" and "Developer Notes" should be kept brief. If explanations are lengthy, it's an indication that this explanation should live in the docs instead. When in doubt, err on the side of updating your docs.
 
 The target audience for "Additions", "Changes", "Removals", "Improvements", "Issues" and "Notes" is the **end user**. Adjust wording accordingly.
 
-The target audience for "Developer Notes" is the **technical staff** of the customer. 
+The target audience for "Developer Notes" is the **technical staff** of the customer.
 
 ### Coding Style
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
