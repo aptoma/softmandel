@@ -72,6 +72,7 @@ with one that has tools. Here are a few recommendations:
 
 * Twig: http://twig.sensiolabs.org/doc/coding_standards.html
 * Ruby: https://github.com/bbatsov/ruby-style-guide
+* Scala: http://docs.scala-lang.org/style/
 
 ### Source Control
 All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
