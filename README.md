@@ -76,8 +76,9 @@ JavaScript code should follow the [Yandex styleguide](https://github.com/yandex/
 
 - Variables should be declared on the top of methods. Each var statement should only initialize one variable, but may declare several unitialized variables. [*](http://benalman.com/news/2012/05/multiple-var-statements-javascript/)
 - No hard maximum line length, less than 120 characters is recommended.
+- Tabs are used for indentation.
 
-A [JSCS](http://jscs.info/) preset config is available in [Aptoma Bootstrap](https://github.com/aptoma/aptoma-bootstrap/blob/master/package.json#L22-L26).
+A [JSCS](http://jscs.info/) preset config is available in [Aptoma Bootstrap](https://github.com/aptoma/aptoma-bootstrap/blob/master/.jscsrc).
 
 Apps using AngularJS should follow [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide).
 
