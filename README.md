@@ -67,6 +67,8 @@ The target audience for "Developer Notes" is the **technical staff** of the cust
 ### Coding Style
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
+SCSS code should use the default rules of [SCSS Lint](https://github.com/causes/scss-lint) with the exception of four spaces for indenting. A customized config file is located [here](https://github.com/aptoma/aptoma-bootstrap/blob/master/.scss-lint.yml). `scss-lint` can also be used for linting pure CSS files, and any recommendations for SCSS is also valid for CSS.
+
 For other languages you must conform to some defined coding style, preferably
 with one that has tools. Here are a few recommendations:
 
@@ -134,6 +136,8 @@ __We use HTML5.__
 As a general rule, we do not use languages that transpile.
 
 Using CSS preprocessors are OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
+
+The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide).
 
 ##### Browser support
 Any customer projects accessible by end users need to support whatever browsers the customer wants to support. For customer admin tools (ie. only used by their internal staff), we should push for only guaranteeing support for latest versions of Chrome and Firefox. For internal projects, we can assume latest versions of Chrome and Firefox.
