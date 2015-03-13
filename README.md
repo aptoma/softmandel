@@ -65,10 +65,28 @@ The target audience for "Additions", "Changes", "Removals", "Improvements", "Iss
 The target audience for "Developer Notes" is the **technical staff** of the customer.
 
 ### Coding Style
+
+When there’s an industry standard coding style for a language, we should adopt that. When multiple established standards exists, we should pick the one that most matches our current style, unless we all agree that some other standard is preferred.
+
+#### PHP
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
+#### JavaScript
+JavaScript code should follow the [Yandex styleguide](https://github.com/yandex/codestyle/blob/master/javascript.md), with the following changes:
+
+- Variables should be declared on the top of methods. Each var statement should only initialize one variable, but may declare several unitialized variables. [*](http://benalman.com/news/2012/05/multiple-var-statements-javascript/)
+- No hard maximum line length, less than 120 characters is recommended.
+- Tabs are used for indentation.
+
+A [JSCS](http://jscs.info/) preset config is available in [Aptoma Bootstrap](https://github.com/aptoma/aptoma-bootstrap/blob/master/.jscsrc).
+
+Apps using AngularJS should follow [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide).
+
+#### SCSS
 SCSS code should use the default rules of [SCSS Lint](https://github.com/causes/scss-lint) with the exception of four spaces for indenting. A customized config file is located [here](https://github.com/aptoma/aptoma-bootstrap/blob/master/.scss-lint.yml). `scss-lint` can also be used for linting pure CSS files, and any recommendations for SCSS is also valid for CSS.
 
+#### Other Languages
+>>>>>>> Add info about JavaScript style guide
 For other languages you must conform to some defined coding style, preferably
 with one that has tools. Here are a few recommendations:
 
