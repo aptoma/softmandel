@@ -86,7 +86,6 @@ Apps using AngularJS should follow [John Papa's styleguide](https://github.com/j
 SCSS code should use the default rules of [SCSS Lint](https://github.com/causes/scss-lint) with the exception of four spaces for indenting. A customized config file is located [here](https://github.com/aptoma/aptoma-bootstrap/blob/master/.scss-lint.yml). `scss-lint` can also be used for linting pure CSS files, and any recommendations for SCSS is also valid for CSS.
 
 #### Other Languages
->>>>>>> Add info about JavaScript style guide
 For other languages you must conform to some defined coding style, preferably
 with one that has tools. Here are a few recommendations:
 
