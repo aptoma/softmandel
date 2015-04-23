@@ -54,6 +54,7 @@ Every versioned release should have release notes detailing the changes, additio
 | Removed         | Information about features which have been removed. Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else. |
 | Improved        | Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category. |
 | Fixed           | Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed". |
+| Deprecated      | Features which are marked for deletion. Any replacement features are expected to be suitably documented, along with any potential upgrade paths. Distance in time between deprecation and removal should be proportional to the scope of the feature.
 | Notes           | Additional information about something covered in one of the other points. A typical example might be instructions for a new feature or details regarding an altered workflow. |
 | Developer Notes | Additional information which might be useful for the customer's developers and is related to a change in this version. Typical examples are changes made to public APIs, or alterations to how the system handles custom skins or scripts. |
 
