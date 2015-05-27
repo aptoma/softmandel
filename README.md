@@ -90,29 +90,26 @@ with one that has tools. Here are a few recommendations:
 * Scala: http://docs.scala-lang.org/style/
 
 ### Source Control
-All projects should use GIT for version control. Any deviation from this should be thoroughly documented and warranted.
+All projects should use GIT for version control.
 
-All repositories should have a remote on Github.
+All repositories should have a remote on GitHub.com.
 
 All repositories should have a README.md that explains the purpose of the repo and helps new developers get started.
 
 If your repository is open for contributions from non-team members, or there's important factors not covered by SOFT MANDEL, you should also include a CONTRIBUTING.md to explain guidelines for contributing.
 
 #### Naming repositories
-Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated. It is important that all repositories has a description that explains the purpose to make it easier for others to find things e.g for DrFront `Web application for front page production`.
+Repositories should have short names that make it easy to locate a repository and to understand what it does.
 
-For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use the domain name as the repository name, for all other repositories, separate words with dashes, ie. `silex-bootstrap` and `node-github-downloader`.
-
-Be wary of including your product name in a repo that is not actually coupled to your product. Ie., if you create a lib that upload files to CDN, don’t call it `drfront-cdn-uploader`, but rather `cdn-uploader`. Of course, if your library _is_ tied to a product, including the name is warranted, ie. `drlib-rest-client`.
-
-The name of a library should reflects it's purpose e.g `cdn-uploader`.
+For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use the domain name as the repository name, for all other repositories, separate words with dashes: `silex-bootstrap` and `dredition-frontend`.
 
 #### Branches
-Every repository will have a `master` branch.
 
-If your workflow requires multiple branches, the recommended practice is to have the branches `master` and `develop`, where master always reflects the most recent deployed version, and develop is the main development branch.
+The `master` branch should represent a stable version of the code. Non-production ready code should live in separate branches.
 
-Any branch that is not master or develop is a feature branch, and should have a descriptive name. All feature branches should be based off of develop, and merged back into develop when done.
+It's recommended to have a `develop` branch as the base for ongoing development.
+
+GitHub should be configured to use the main development branch as the default branch.
 
 ### Technology and tools
 Our goal for technology and tools is to strike the right balance between smart defaults and flexibility.
