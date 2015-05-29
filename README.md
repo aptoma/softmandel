@@ -12,12 +12,7 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 		- [Branches](#branches)
 	- [Technology and tools](#technology-and-tools)
 		- [Backend](#backend)
-			- [Testing](#testing)
-			- [Persistent storage (ie. DB)](#persistent-storage-ie-db)
 		- [Frontend](#frontend)
-			- [Transpiling](#transpiling)
-			- [Browser support](#browser-support)
-			- [Testing](#testing-1)
 	- [Testing](#testing-2)
 	- [Mess Detection](#mess-detection)
 	- [Continuous Integration](#continuous-integration)
@@ -99,7 +94,9 @@ All projects should use GIT for version control. Any deviation from this should 
 
 All repositories should have a remote on Github.
 
-All repositories should have a README.md to explain the purpose of the repo. If your repository is open for contributions from non-team members, or there's important factors not covered by SOFT MANDEL, you should also include a CONTRIBUTING.md to explain guidelines for contributing.
+All repositories should have a README.md that explains the purpose of the repo and helps new developers get started.
+
+If your repository is open for contributions from non-team members, or there's important factors not covered by SOFT MANDEL, you should also include a CONTRIBUTING.md to explain guidelines for contributing.
 
 #### Naming repositories
 Repositories should have short names that make it easy to locate a repository and to understand what it does. Our legacy JAVA-inspired package naming scheme is deprecated. It is important that all repositories has a description that explains the purpose to make it easier for others to find things e.g for DrFront `Web application for front page production`.
@@ -122,8 +119,15 @@ Our goal for technology and tools is to strike the right balance between smart d
 
 Where there exists a clear best practice or standard, we should use that, where there are several more or less equivalent solutions, we should use the same solution every time, where there are new, emerging, or no established best practice, we should have room to explore, experiment, and learn.
 
+Experimenting is encouraged, but should be scoped to low-risk increments. As experience increases, the situation should be reassessed, and the pros and cons should be discussed with other developers in Aptoma.
+
 #### Backend
-Backend development should use PHP as the main programming language. We can assume PHP5.3, for all projects.
+We have two standard languages for backend services: PHP and Node.js. Proficiency in these can be assumed from all developers in Aptoma.
+
+When using other languages than these, the benefits should clearly outweigh the extra costs related to maintenance and resource flexibility. As you cannot assume general knowledge in Aptoma, you must take extra steps to ease onboarding of potential new team members. As soon as it moves beyond a simple experiment, consult with Head of Technology to ensure a sustainable approach.
+
+##### PHP
+Our baseline PHP version is 5.3 with Apache 2.2. New projects can consult with AMP in order to run 5.5 with Apache 2.4.
 
 Standard PHP tools and frameworks:
 
@@ -135,35 +139,42 @@ Standard PHP tools and frameworks:
 
 New projects are encouraged to be based off of [Silex Bootstrap](https://github.com/aptoma/silex-bootstrap).
 
-##### Testing
 All tests should use PHPUnit, and projects should be set up so that you can run phpunit from the root directory to run all tests.
+
+You should use namespaces and Composer for autoloading.
+
+##### Node.js
+
+Node.js projects are free to decide the version of Node.js to use, including io.js. We have no hard requirements regarding Node.js.
+
+[Hapi.js](http://hapijs.com/) is a recommended framework to use, but you are free to experiment with other options.
+
+Prefer using `npm` ask a task runner, and always define the `start` and `test` tasks.
 
 ##### Persistent storage (ie. DB)
 We have no standard rules for databases. MySQL is the default choice for SQL, while MongoDB should be the default choice for NoSQL. Some experimentation and exploration is encouraged, but needs to be thoroughly weighed against stability, maintenance, and hosting costs, and obviously coordinated with AMP.
 
 #### Frontend
-We have no strict guidelines for frontend frameworks. As frontend technologies are in constant development, and a lot less settled than PHP, we should encourage a certain degree of experimentation.
+We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation.
 
-The “safe” choice is jQuery, Underscore/Lodash, and Backbone, as required. Plain old JavaScript is encouraged for projects that really don’t need the richer functionality provided by frameworks, but the threshold for duplicating functionality from established, well known frameworks should be high.
+Recommended options include Angular, Backbone, jQuery and React. Plain old JavaScript is encouraged for projects that really don’t need the richer functionality provided by frameworks, but the threshold for duplicating functionality from established, well known frameworks should be high.
 
 We shall write AMD compatible modules when using JavaScript module management. RequireJS is the prefered AMD loader.
 
-__We use HTML5.__
-
 ##### Transpiling
-As a general rule, we do not use languages that transpile.
+Transpilers should only be used when they bring clear benefits. An example of this is using [TypeScript](http://www.typescriptlang.org/) or [Babel](https://babeljs.io/) to allow using EcmaScript 6 features. When using transpilers, be mindful of polyfills in the generated code, and ensure that performance is good across all supported browsers.
 
-Using CSS preprocessors are OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
+Using CSS preprocessors is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
 
 The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide).
 
 ##### Browser support
 Any customer projects accessible by end users need to support whatever browsers the customer wants to support. For customer admin tools (ie. only used by their internal staff), we should push for only guaranteeing support for latest versions of Chrome and Firefox. For internal projects, we can assume latest versions of Chrome and Firefox.
 
-When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard, but that will currently not include IE8, which still has a large market share. We should be prepared to support IE8 when required.
+When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. Legacy versions of IE must be supported according to requirements from our customers.
 
 ##### Testing
-[Karma](http://karma-runner.github.com/)/[Mocha](http://visionmedia.github.com/mocha/)/[Chai](http://chaijs.com/)/[Sinon](http://sinonjs.org/) seems to be the best combo ATM but since its an evolving technology it may change in very near future.
+[Karma](http://karma-runner.github.com/)/[Mocha](http://visionmedia.github.com/mocha/)/[Chai](http://chaijs.com/)/[Sinon](http://sinonjs.org/) seems to be the best combo ATM but since its an evolving technology it may change in the very near future.
 
 ### Testing
 All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. The recommended minimum level of code coverage is 70%.
@@ -189,9 +200,7 @@ We recommend using [PHPCPD](https://github.com/sebastianbergmann/phpcpd) for Cop
 Default configuration files for both PHPMD and JSHint is available at [https://github.com/aptoma/aptoma-bootstrap](https://github.com/aptoma/aptoma-bootstrap)
 
 ### Continuous Integration
-All projects that has some sorts of tests (e.g PHPUnit, linting, mess detection) shall be integrated with an continuous integration server. We suggest using [Travis CI](https://magnum.travis-ci.com/), where we have a pro account.
-
-The use of other CI solutions shall be coordinated with AMP.
+All projects shall be integrated with a continuous integration server. Unless you have non-negotiable needs that [Travis CI](https://magnum.travis-ci.com/) can't meet, use Travis CI.
 
 __Requirements__
 
