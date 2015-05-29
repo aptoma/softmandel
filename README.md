@@ -17,16 +17,16 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 	- [Mess Detection](#mess-detection)
 	- [Continuous Integration](#continuous-integration)
 		- [Build tools](#build-tools)
-	- [Technical Design](#technical-design)
+- [Application Design and Life Cycle](#application-design-and-life-cycle)
+	- [Project participants](#project-participants)
+	- [Code review](#code-review)
+	- [Design Considerations](#design-considerations)
 		- [Multitenancy](#multitenancy)
-		- [Project participants](#project-participants)
-		- [Code review](#code-review)
+		- [Modularity and Microservices](#modularity-and-microservices)
 	- [Refactoring](#refactoring)
 	    - [Opportunistic Refactoring](#opportunistic-refactoring)
 	    - [Scheduled Refactoring](#scheduled-refactoring)
-- [Deployment](#deployment)
-	- [Installation Types](#installation-types)
-	- [Process](#process)
+	- [Deployment Process](#deployment-process)
 
 ## Development
 
@@ -208,17 +208,28 @@ __Requirements__
 #### Build tools
 Some sort of build tool / script for a project is required for an easy integration with CI. We recommend using either [Ant](http://ant.apache.org/) or [Grunt](http://gruntjs.com/) to perform these tasks. For an example with Grunt look at the [silex bootstrap](https://github.com/aptoma/silex-bootstrap).
 
-### Technical Design
-Recommendations to consider when starting a new software project.
 
-#### Multitenancy
-If the project has the potential of getting more than one customer and if it is supposed to run in SaaS then it would be wise to have a multitenancy design.
+## Application Design and Life Cycle
 
-#### Project participants
+### Project Participants
+
 Designing and working alone on significant software project is not good. If this is the case go to management and kick them in the nuts.
 
-#### Code review
-Commits should always be read and reflected on by another developer within reasonable time.
+If circumstances finds you working alone, designate a "co-pilot" who has basic familiarity with the project and can provide input and code reviews.
+
+### Code review
+
+Commits should always be read and reflected on by another developer within reasonable time. Use pull requests on GitHub.
+
+### Design Considerations
+
+#### Multitenancy
+
+Always consider and prefer a multitenant design. If a full multitenant approach is not possible, consider [hybrid-tenancy](http://samnewman.io/patterns/deployment/hybrid-tenancy/).
+
+#### Modularity and Microservices
+
+You should structure your project into modules with clearly defined responsibilites. Consider breaking certain modules out as separate loosely coupled microservices, possibly reusable across products.
 
 ### Refactoring
 
@@ -236,42 +247,12 @@ When a larger refactoring project is needed, participants from other projects
 should be involved both at the start and at the end of the project, in order to
 get different perspectives and shared learning opportunities.
 
-## Deployment
+### Deployment Process
 
-### Installation Types
-Each product is encouraged to have at least four installation types:
-
-1. Production (possibly one for each customer)
-2. Staging (possibly one for each customer).
-3. Sandbox (for internal/external bleeding edge testing and development, also cross product).
-4. Demo (for showing off the product to new customers etc).
-
-In addition, most systems are also likely to have local and/or shared development environments.
-
-**Production** is quite simply the customer’s active production environment.
-
-**Staging** should mimic production, and be used for previewing and validating new features before deploying to production. Staging may be an ad-hoc setup, that is only activated during development phases with customers, and just before deploying new code. In a proper multi-tenant setup, staging should always be active. Ideally, a full integration and system test suite (see below) should be run on the staging environment before deploy to production.
-
-The need for staging environments will vary from product to product, and possibly from customer to customer too.
-
-The only hard requirement is that your application is able to provide different environments, in effect meaning that no special environment config is hard coded throughout the application.
-
-**Sandbox** is the place where can play around. The sandbox allows other internal teams to experiment with integrations in a production like environment without affecting users (ie. create test articles for DrPublish to show in DrFront/DrMobile/etc).
-
-The sandbox environment may also be used in close collaboration with bleeding edge customers that we do co-development with.
-
-In a multi-tenant design, the sandbox install might be “just another customer”, possibly present in both production and staging.
-
-**Demo** should run the most recent demoable version, and only contain content that is suitable for
-display in product demos for C-level executives. In a multi-tenant design, the demo install will most likely be “just another customer”.
-
-### Process
 All projects shall have the deployment process fully documented with requirements and dependencies.
 
 All builds that are to be deployed should be tested before it is set into production. If the product has tests then it should be verified through the CI, this is preferably done automatically with some sort of deployment tool. For rare cases with products without tests there shall be a documented process on how to verify and or test the build upon deployment.
 
-It is prefered that the deployment process is automated and contains rollback option and has documentation on how to verify the build as successful.
+It is preferred that the deployment process is automated and contains a rollback option, and has documentation on how to verify the build and deployment as successful.
 
 [Capistrano](http://capistranorb.com/) is one tool that is used by some projects to assist in automating the deploy process.
-
-
