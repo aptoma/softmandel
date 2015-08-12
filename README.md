@@ -156,7 +156,10 @@ We have no requirements for frontend JavaScript frameworks. As frontend technolo
 
 Recommended options include Angular, Backbone, jQuery and React. Plain old JavaScript is encouraged for projects that really don’t need the richer functionality provided by frameworks, but the threshold for duplicating functionality from established, well known frameworks should be high.
 
-We shall write AMD compatible modules when using JavaScript module management. RequireJS is the prefered AMD loader.
+##### Module Loading
+Module loading in JavaScript is a moving target. With modules becoming a language feature in ES2015, the long term recommended solution is to use native ES2015 modules. [Look here](http://www.2ality.com/2014/09/es6-modules-final.html) for a thorough explanation. As ES2015 modules are not currently supported by any browsers, a transpiler will be required to use this syntax.
+
+For projects that can't/won't rely on a transpiler, the recommended module syntax is [CommonJS](http://www.commonjs.org/). This is the same syntax used by Node.js, and is more similar to ES2015 than AMD.
 
 ##### Transpiling
 Transpilers should only be used when they bring clear benefits. An example of this is using [TypeScript](http://www.typescriptlang.org/) or [Babel](https://babeljs.io/) to allow using EcmaScript 6 features. When using transpilers, be mindful of polyfills in the generated code, and ensure that performance is good across all supported browsers.
