@@ -10,6 +10,8 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 	- [Source Control](#source-control)
 		- [Naming repositories](#naming-repositories)
 		- [Branches](#branches)
+		- [Commits](#commits)
+		- [Pull Requests](#pull-requests)
 	- [Technology and tools](#technology-and-tools)
 		- [Backend](#backend)
 		- [Frontend](#frontend)
@@ -110,6 +112,22 @@ The `master` branch should represent a stable version of the code. Non-productio
 It's recommended to have a `develop` branch as the base for ongoing development.
 
 GitHub should be configured to use the main development branch as the default branch.
+
+#### Commits
+
+Every commit should represent an atomic discrete change. Split unrelated changes into to multiple commits, and try to make every commit able to stand on it's own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
+
+Commit messages should include an informative title, be written in the imperative style, and preferably be no longer than 50 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. See [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
+
+If relevant, use [GitHub flavoured markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) to link to commits, issues and repos. For example, include "Fix #13" in the message body to have issue #13 of the repository be automatically closed when the commit is merged into the main development branch.
+
+#### Pull Requests
+
+GitHub pull requests is the recommended tool for code review.
+
+Similar to commit messages, each pull request should cover an atomic change, but it's OK for a pull request to cover a set of related commits. As a pull request will either be approved or rejected as a whole, changes that are not linked to each other is best split into multiple PRs. What belongs together in a pull request is not always clear. Use your best judgment, and be pragmatic.
+
+While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
 ### Technology and tools
 Our goal for technology and tools is to strike the right balance between smart defaults and flexibility.
