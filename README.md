@@ -115,7 +115,7 @@ GitHub should be configured to use the main development branch as the default br
 
 #### Commits
 
-Every commit should represent an atomic discrete change. Split unrelated changes into to multiple commits, and try to make every commit able to stand on it's own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
+Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on it's own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
 
 Commit messages should include an informative title, be written in the imperative style, and preferably be no longer than 50 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. See [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
 
