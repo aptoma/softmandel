@@ -146,7 +146,7 @@ When using other languages than these, the benefits should clearly outweigh the 
 
 ##### PHP
 
-Our baseline PHP version is 5.3 with Apache 2.2. New projects can consult with AMP in order to run 5.5 with Apache 2.4.
+Our legacy PHP version is 5.3 with Apache 2.2. New servers will use 5.5 with Apache 2.4.
 
 Standard PHP tools and frameworks:
 
