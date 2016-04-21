@@ -261,4 +261,4 @@ All builds that are to be deployed should be tested before it is set into produc
 
 It is preferred that the deployment process is automated and contains a rollback option, and has documentation on how to verify the build and deployment as successful.
 
-[Capistrano](http://capistranorb.com/) is one tool that is used by some projects to assist in automating the deploy process.
+The preferred method of deployment is [AWS CodeDeploy](https://aws.amazon.com/codedeploy/), powered by [AMP CLI](https://github.com/aptoma/amp-cli).
