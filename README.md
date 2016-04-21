@@ -4,7 +4,6 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 
 - [Development](#development)
 	- [Versioning](#versioning)
-		- [The basics of semantic versioning](#the-basics-of-semantic-versioning)
 	- [Release notes](#release-notes)
 	- [Coding Style](#coding-style)
 	- [Source Control](#source-control)
@@ -35,10 +34,6 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 ### Versioning
 If versioning is used in software, it should follow the [Semantic Versioning Standard](http://semver.org).
 
-#### The basics of semantic versioning
-Consider a version format of X.Y.Z (Major.Minor.Patch). Bug fixes not affecting the API increment the patch version, backwards compatible API additions/changes increment the minor version, and backwards incompatible API changes increment the major version.
-
-For more details about semantic version see [http://semver.org/](http://semver.org/)
 
 ### Release notes
 
