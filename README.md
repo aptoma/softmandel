@@ -174,7 +174,7 @@ Prefer using `npm` ask a task runner, and always define the `start` and `test` t
 
 We have no standard rules for databases. MySQL is the default choice for SQL, while MongoDB should be the default choice for NoSQL. Some experimentation and exploration is encouraged, but needs to be thoroughly weighed against stability, maintenance, and hosting costs, and obviously coordinated with AMP.
 
-#### Frontend
+Prefer database engines supported by Amazon RDS. Consider using DynamoDB.
 
 We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation.
 
