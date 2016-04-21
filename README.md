@@ -176,9 +176,9 @@ We have no standard rules for databases. MySQL is the default choice for SQL, wh
 
 Prefer database engines supported by Amazon RDS. Consider using DynamoDB.
 
-We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation.
+#### Frontend
 
-Recommended options include Angular, Backbone, jQuery and React. Plain old JavaScript is encouraged for projects that really don’t need the richer functionality provided by frameworks, but the threshold for duplicating functionality from established, well known frameworks should be high.
+We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues!
 
 ##### Module Loading
 
