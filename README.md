@@ -32,6 +32,7 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 ## Development
 
 ### Versioning
+
 If versioning is used in software, it should follow the [Semantic Versioning Standard](http://semver.org).
 
 
@@ -51,6 +52,7 @@ Every versioned release should have release notes detailing the changes, additio
 | Developer Notes | Additional information which might be useful for the customer's developers and is related to a change in this version. Typical examples are changes made to public APIs, or alterations to how the system handles custom skins or scripts. |
 
 #### Other guidelines
+
 Both "Notes" and "Developer Notes" should be kept brief. If explanations are lengthy, it's an indication that this explanation should live in the docs instead. When in doubt, err on the side of updating your docs.
 
 The target audience for "Additions", "Changes", "Removals", "Improvements", "Issues" and "Notes" is the **end user**. Adjust wording accordingly.
@@ -62,9 +64,11 @@ The target audience for "Developer Notes" is the **technical staff** of the cust
 When there’s an industry standard coding style for a language, we should adopt that. When multiple established standards exists, we should pick the one that most matches our current style, unless we all agree that some other standard is preferred.
 
 #### PHP
+
 All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
 
 #### JavaScript
+
 JavaScript code should follow the [Yandex styleguide](https://github.com/yandex/codestyle/blob/master/javascript.md), with the following changes:
 
 - Variables should be declared on the top of methods. Each var statement should only initialize one variable, but may declare several unitialized variables. [*](http://benalman.com/news/2012/05/multiple-var-statements-javascript/)
@@ -76,9 +80,11 @@ Use [ESLint](http://eslint.org/) with [@aptoma/eslint-config](https://github.com
 Apps using AngularJS should follow [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide).
 
 #### SCSS
+
 SCSS code should use the default rules of [SCSS Lint](https://github.com/causes/scss-lint) with the exception of four spaces for indenting. A customized config file is located [here](https://github.com/aptoma/aptoma-bootstrap/blob/master/.scss-lint.yml). `scss-lint` can also be used for linting pure CSS files, and any recommendations for SCSS is also valid for CSS.
 
 #### Other Languages
+
 For other languages you must conform to some defined coding style, preferably
 with one that has tools. Here are a few recommendations:
 
@@ -87,6 +93,7 @@ with one that has tools. Here are a few recommendations:
 * Scala: http://docs.scala-lang.org/style/
 
 ### Source Control
+
 All projects should use GIT for version control.
 
 All repositories should have a remote on GitHub.com.
@@ -94,6 +101,7 @@ All repositories should have a remote on GitHub.com.
 All repositories should have a README.md that explains the purpose of the repo and helps new developers get started.
 
 #### Naming repositories
+
 Repositories should have short names that make it easy to locate a repository and to understand what it does.
 
 For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use the domain name as the repository name, for all other repositories, separate words with dashes: `silex-bootstrap` and `dredition-frontend`.
@@ -123,6 +131,7 @@ Similar to commit messages, each pull request should cover an atomic change, but
 While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
 ### Technology and tools
+
 Our goal for technology and tools is to strike the right balance between smart defaults and flexibility.
 
 Where there exists a clear best practice or standard, we should use that, where there are several more or less equivalent solutions, we should use the same solution every time, where there are new, emerging, or no established best practice, we should have room to explore, experiment, and learn.
@@ -130,11 +139,13 @@ Where there exists a clear best practice or standard, we should use that, where 
 Experimenting is encouraged, but should be scoped to low-risk increments. As experience increases, the situation should be reassessed, and the pros and cons should be discussed with other developers in Aptoma.
 
 #### Backend
+
 We have two standard languages for backend services: PHP and Node.js. Proficiency in these can be assumed from all developers in Aptoma.
 
 When using other languages than these, the benefits should clearly outweigh the extra costs related to maintenance and resource flexibility. As you cannot assume general knowledge in Aptoma, you must take extra steps to ease onboarding of potential new team members. As soon as it moves beyond a simple experiment, consult with Head of Technology to ensure a sustainable approach.
 
 ##### PHP
+
 Our baseline PHP version is 5.3 with Apache 2.2. New projects can consult with AMP in order to run 5.5 with Apache 2.4.
 
 Standard PHP tools and frameworks:
@@ -160,19 +171,23 @@ Node.js projects are free to decide the version of Node.js to use, including io.
 Prefer using `npm` ask a task runner, and always define the `start` and `test` tasks.
 
 ##### Persistent storage (ie. DB)
+
 We have no standard rules for databases. MySQL is the default choice for SQL, while MongoDB should be the default choice for NoSQL. Some experimentation and exploration is encouraged, but needs to be thoroughly weighed against stability, maintenance, and hosting costs, and obviously coordinated with AMP.
 
 #### Frontend
+
 We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation.
 
 Recommended options include Angular, Backbone, jQuery and React. Plain old JavaScript is encouraged for projects that really don’t need the richer functionality provided by frameworks, but the threshold for duplicating functionality from established, well known frameworks should be high.
 
 ##### Module Loading
+
 Module loading in JavaScript is a moving target. With modules becoming a language feature in ES2015, the long term recommended solution is to use native ES2015 modules. [Look here](http://www.2ality.com/2014/09/es6-modules-final.html) for a thorough explanation. As ES2015 modules are not currently supported by any browsers, a transpiler will be required to use this syntax.
 
 For projects that can't/won't rely on a transpiler, the recommended module syntax is [CommonJS](http://www.commonjs.org/). This is the same syntax used by Node.js, and is more similar to ES2015 than AMD.
 
 ##### Transpiling
+
 Transpilers should only be used when they bring clear benefits. An example of this is using [TypeScript](http://www.typescriptlang.org/) or [Babel](https://babeljs.io/) to allow using EcmaScript 6 features. When using transpilers, be mindful of polyfills in the generated code, and ensure that performance is good across all supported browsers.
 
 Using CSS preprocessors is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
@@ -180,14 +195,17 @@ Using CSS preprocessors is OK, and even encouraged. Maintainability and quality 
 The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide).
 
 ##### Browser support
+
 Any customer projects accessible by end users need to support whatever browsers the customer wants to support. For customer admin tools (ie. only used by their internal staff), we should push for only guaranteeing support for latest versions of Chrome and Firefox. For internal projects, we can assume latest versions of Chrome and Firefox.
 
 When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. Legacy versions of IE must be supported according to requirements from our customers.
 
 ##### Testing
+
 [Karma](http://karma-runner.github.com/)/[Mocha](http://visionmedia.github.com/mocha/)/[Chai](http://chaijs.com/)/[Sinon](http://sinonjs.org/) seems to be the best combo ATM but since its an evolving technology it may change in the very near future.
 
 ### Testing
+
 All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. The recommended minimum level of code coverage is 70%.
 
 It is recommended that all projects have functional tests covering the main usage of the service.
@@ -202,6 +220,7 @@ A few guidelines for unit tests:
 - Tests should be able to run without a network connection, any external dependencies should be mocked.
 
 ### Mess Detection
+
 Mess detection is required since they forces us to recognize questionable elements of our code. The limit values used should be optimized for each project, and should change as time goes on and we learn more about how they affect our code.
 
 For PHP application we use [PHPMD](http://phpmd.org).
@@ -211,6 +230,7 @@ We recommend using [PHPCPD](https://github.com/sebastianbergmann/phpcpd) for Cop
 Default configuration files for both PHPMD and JSHint is available at [https://github.com/aptoma/aptoma-bootstrap](https://github.com/aptoma/aptoma-bootstrap)
 
 ### Continuous Integration
+
 All projects shall be integrated with a continuous integration server. Unless you have non-negotiable needs that [Travis CI](https://magnum.travis-ci.com/) can't meet, use Travis CI.
 
 __Requirements__
@@ -220,6 +240,7 @@ __Requirements__
 - Resolving broken builds should be a high priority for all developers
 
 #### Build tools
+
 Some sort of build tool / script for a project is required for an easy integration with CI. We recommend using either [Ant](http://ant.apache.org/) or [Grunt](http://gruntjs.com/) to perform these tasks. For an example with Grunt look at the [silex bootstrap](https://github.com/aptoma/silex-bootstrap).
 
 
