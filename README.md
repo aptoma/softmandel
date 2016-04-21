@@ -200,10 +200,6 @@ Any customer projects accessible by end users need to support whatever browsers 
 
 When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. Legacy versions of IE must be supported according to requirements from our customers.
 
-##### Testing
-
-[Karma](http://karma-runner.github.com/)/[Mocha](http://visionmedia.github.com/mocha/)/[Chai](http://chaijs.com/)/[Sinon](http://sinonjs.org/) seems to be the best combo ATM but since its an evolving technology it may change in the very near future.
-
 ### Testing
 
 All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. The recommended minimum level of code coverage is 70%.
