@@ -17,7 +17,6 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 	- [Testing](#testing-2)
 	- [Mess Detection](#mess-detection)
 	- [Continuous Integration](#continuous-integration)
-		- [Build tools](#build-tools)
 - [Application Design and Life Cycle](#application-design-and-life-cycle)
 	- [Project participants](#project-participants)
 	- [Code review](#code-review)
@@ -214,18 +213,7 @@ For JavaScript we use [ESLint](http://eslint.org) with [@aptoma/eslint-config](h
 
 ### Continuous Integration
 
-All projects shall be integrated with a continuous integration server. Unless you have non-negotiable needs that [Travis CI](https://magnum.travis-ci.com/) can't meet, use Travis CI.
-
-__Requirements__
-
-- The CI project shall run automatically, usually by time interval / commit.
-- Failed builds should be reported to project owner or other responsible persons.
-- Resolving broken builds should be a high priority for all developers
-
-#### Build tools
-
-Some sort of build tool / script for a project is required for an easy integration with CI. We recommend using either [Ant](http://ant.apache.org/) or [Grunt](http://gruntjs.com/) to perform these tasks. For an example with Grunt look at the [silex bootstrap](https://github.com/aptoma/silex-bootstrap).
-
+All projects should be integrated with a continuous integration server. Unless you have non-negotiable needs that [Travis CI](https://magnum.travis-ci.com/) can't meet, use Travis CI. Never merge or deploy failing builds.
 
 ## Application Design and Life Cycle
 
