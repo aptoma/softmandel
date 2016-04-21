@@ -208,11 +208,9 @@ All projects should have tests. Your test coverage should give all contributing 
 
 Mess detection is required since they forces us to recognize questionable elements of our code. The limit values used should be optimized for each project, and should change as time goes on and we learn more about how they affect our code.
 
-For PHP application we use [PHPMD](http://phpmd.org).
-For JavaScript we use [JSHint](http://jshint.com).
-We recommend using [PHPCPD](https://github.com/sebastianbergmann/phpcpd) for Copy/Paste detection also.
+For PHP application we use [PHPMD](http://phpmd.org) with [https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml](https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml)
 
-Default configuration files for both PHPMD and JSHint is available at [https://github.com/aptoma/aptoma-bootstrap](https://github.com/aptoma/aptoma-bootstrap)
+For JavaScript we use [ESLint](http://eslint.org) with [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
 
 ### Continuous Integration
 
