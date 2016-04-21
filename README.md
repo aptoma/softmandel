@@ -192,7 +192,7 @@ Transpilers should only be used when they bring clear benefits. An example of th
 
 Using CSS preprocessors is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
 
-The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide).
+The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also consider using [PostCSS](https://github.com/postcss/postcss).
 
 ##### Browser support
 
