@@ -71,7 +71,7 @@ JavaScript code should follow the [Yandex styleguide](https://github.com/yandex/
 - No hard maximum line length, less than 120 characters is recommended.
 - Tabs are used for indentation.
 
-A [JSCS](http://jscs.info/) preset config is available in [Aptoma Bootstrap](https://github.com/aptoma/aptoma-bootstrap/blob/master/.jscsrc).
+Use [ESLint](http://eslint.org/) with [@aptoma/eslint-config](https://github.com/aptoma/eslint-config) for verification.
 
 Apps using AngularJS should follow [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide).
 
