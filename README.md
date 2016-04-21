@@ -202,18 +202,7 @@ When adding support for additional browsers infers very little overhead, we shou
 
 ### Testing
 
-All projects should have unit tests. Unit tests should cover as much of the code base as is practically possible. The recommended minimum level of code coverage is 70%.
-
-It is recommended that all projects have functional tests covering the main usage of the service.
-
-We also encourage higher level testing, outlined in [Software Testing Practices](https://docs.google.com/a/aptoma.com/document/d/1Sy6lmekbB7ZH-upI99HhJzPJNDXtBrz5cnSf3f0hTKs/edit#).
-
-A few guidelines for unit tests:
-
-- For PHP, PHPUnit is the recommended assertion library and test runner.
-- The test suite should be easy to run from the command line and from a CI server.
-- Tests should generally only test public methods.
-- Tests should be able to run without a network connection, any external dependencies should be mocked.
+All projects should have tests. Your test coverage should give all contributing developers high confidence of the correctness of the code.
 
 ### Mess Detection
 
