@@ -164,7 +164,7 @@ You should use namespaces and Composer for autoloading.
 
 ##### Node.js
 
-Node.js projects are free to decide the version of Node.js to use, including io.js. We have no hard requirements regarding Node.js.
+Prefer targeting the latest LTS release.
 
 [Hapi.js](http://hapijs.com/) is a recommended framework to use, but you are free to experiment with other options.
 
