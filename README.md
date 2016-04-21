@@ -93,8 +93,6 @@ All repositories should have a remote on GitHub.com.
 
 All repositories should have a README.md that explains the purpose of the repo and helps new developers get started.
 
-If your repository is open for contributions from non-team members, or there's important factors not covered by SOFT MANDEL, you should also include a CONTRIBUTING.md to explain guidelines for contributing.
-
 #### Naming repositories
 Repositories should have short names that make it easy to locate a repository and to understand what it does.
 
