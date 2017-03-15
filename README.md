@@ -145,7 +145,7 @@ When using other languages than these, the benefits should clearly outweigh the 
 
 ##### PHP
 
-Our legacy PHP version is 5.3 with Apache 2.2. New servers will use 5.5 with Apache 2.4.
+Our legacy PHP version is 5.3 with Apache 2.2. New servers will use 7.0 with Apache 2.4.
 
 Standard PHP tools and frameworks:
 
