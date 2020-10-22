@@ -109,10 +109,6 @@ For repositories that are closely tied to a website, ie. `blog.aptoma.com`, use 
 
 The `master` branch should represent a stable version of the code. Non-production ready code should live in separate branches.
 
-It's recommended to have a `develop` branch as the base for ongoing development.
-
-GitHub should be configured to use the main development branch as the default branch.
-
 #### Commits
 
 Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on it's own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
