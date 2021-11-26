@@ -41,14 +41,14 @@ Every versioned release should have release notes detailing the changes, additio
 
 | Keyword         | Description |
 |-----------------|-------------|
-| Added           | Descriptions of new features. Try to keep it brief. If any additional information is required, add it to the "Notes" section. |
-| Changed         | Information about alterations done to existing features. Be explicit about the difference between old and new behavior. |
-| Removed         | Information about features which have been removed. Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else. |
+| Added           | Descriptions of new features. Link to relevant doc(s) instead of being verbose in release notes. |
+| Changed         | Information about alterations done to existing features. Be explicit about the difference between old and new behavior, and link to relevant doc(s). |
+| Removed         | Information about features which have been removed. Link to relevant deprecation doc(s). Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else. |
 | Improved        | Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category. |
 | Fixed           | Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed". |
-| Deprecated      | Features which are marked for deletion. Any replacement features are expected to be suitably documented, along with any potential upgrade paths. Distance in time between deprecation and removal should be proportional to the scope of the feature. For projects following semantic versioning, deprecated features should be scheduled for removal in the next major version.
-| Notes           | Additional information about something covered in one of the other points. A typical example might be instructions for a new feature or details regarding an altered workflow. |
-| Developer Notes | Additional information which might be useful for the customer's developers and is related to a change in this version. Typical examples are changes made to public APIs, or alterations to how the system handles custom skins or scripts. |
+| Deprecated      | Features which are marked for deletion. Add link to any replacement features' doc(s), along with any potential upgrade paths. For projects following semantic versioning, deprecated features should be scheduled for removal in the next major version, and should adhere to [SAMBA Upgrade terms](https://docs.google.com/document/d/1H5e3c5LTOrB3s9MaoRGz0AGDTkmMTsdQuks7SxpWR_o/edit#heading=h.ay7frjyq9xs6).
+| Notes           | Not used. We add contextual links to docs instead. |
+| Developer Notes | Not used. We add contextual links to docs instead. |
 
 #### Other guidelines
 
