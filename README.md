@@ -47,8 +47,6 @@ Every versioned release should have release notes detailing the changes, additio
 | Improved        | Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category. |
 | Fixed           | Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed". |
 | Deprecated      | Features which are marked for deletion. Add link to any replacement features' doc(s), along with any potential upgrade paths. For projects following semantic versioning, deprecated features should be scheduled for removal in the next major version, and should adhere to [SAMBA Upgrade terms](https://docs.google.com/document/d/1H5e3c5LTOrB3s9MaoRGz0AGDTkmMTsdQuks7SxpWR_o/edit#heading=h.ay7frjyq9xs6).
-| Notes           | Not used. We add contextual links to docs instead. |
-| Developer Notes | Not used. We add contextual links to docs instead. |
 
 #### Other guidelines
 
