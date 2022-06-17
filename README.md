@@ -188,7 +188,7 @@ All projects should be integrated with a continuous integration server. Unless y
 
 Designing and working alone on a significant software project is not good. If this is the case go to management and kick them in the nuts.
 
-You will often be working alone on a signifcant software project. To avoid being disturbed when you're sipping coctkails in Syden, make your code readable, provide good documentation, and be generous when _you_ need to dig into another person's solo project because they're off sipping cocktails in Syden.
+You will often be working alone on a significant software project. To avoid being disturbed when you're sipping cocktails in Syden, make your code readable, provide good documentation, and be generous when _you_ need to dig into another person's solo project because they're off sipping cocktails in Syden.
 
 ### Code review
 
