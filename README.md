@@ -186,9 +186,9 @@ All projects should be integrated with a continuous integration server. Unless y
 
 ### Project Participants
 
-Designing and working alone on a significant software project is not good. If this is the case go to management and kick them in the nuts.
+Designing and working alone on a significant software project brings risks. We aspire to always have more than one set of eyeballs on every problem. In reality, we will often have projects with a lead developer that has so much domain specific knowledge that it's unrealistic for other developers to contribute on an ongoing basis.
 
-You will often be working alone on a significant software project. To avoid being disturbed when you're sipping cocktails in Syden, make your code readable, provide good documentation, and be generous when _you_ need to dig into another person's solo project because they're off sipping cocktails in Syden.
+You should work to make it possible for someone else to take over in your abscence. Following the processes described in SOFT MANDEL is our main tool for that. If you find yourself doing long-lived solo projects, keep management informed, so that risks can be accounted for.
 
 ### Code review
 
