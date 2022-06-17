@@ -138,7 +138,7 @@ When starting new projects, always use Node.js unless there are very compelling 
 
 All Node.js projects should use a supported version. Target the latest LTS, and update your projects before the version you use is EOL.
 
-[Hapi.js](http://hapijs.com/) is the recommended backed framework.
+[Hapi.js](http://hapijs.com/) is the recommended backend framework.
 
 Use `npm` ask a task runner, and always define the `start` and `test` tasks.
 
