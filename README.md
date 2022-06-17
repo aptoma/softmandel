@@ -162,7 +162,7 @@ The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also
 
 ##### Browser support
 
-Any customer projects accessible by end users need to support whatever browsers the customer wants to support. Customer admin tools (ie. only used by their internal staff) and our internal tolls should support latest versions of Chrome and Firefox.
+Any customer projects accessible by end users need to support whatever browsers the customer wants to support. Customer admin tools (ie. only used by their internal staff) and our internal tools should support latest versions of Chrome and Firefox.
 
 When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. No version of Internet Explorer is formally supported.
 
