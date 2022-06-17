@@ -32,7 +32,7 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 
 ### Versioning
 
-If versioning is used in software, it should follow the [Semantic Versioning Standard](http://semver.org).
+All services should use versioning, and follow the [Semantic Versioning Standard](http://semver.org).
 
 
 ### Release notes
@@ -68,15 +68,10 @@ All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/f
 
 #### JavaScript
 
-JavaScript code should follow the [Yandex styleguide](https://github.com/yandex/codestyle/blob/master/javascript.md), with the following changes:
+JavaScript code should implement Aptoma's ESLint config using [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
 
-- Variables should be declared on the top of methods. Each var statement should only initialize one variable, but may declare several unitialized variables. [*](http://benalman.com/news/2012/05/multiple-var-statements-javascript/)
-- No hard maximum line length, less than 120 characters is recommended.
-- Tabs are used for indentation.
+Using [Prettier](https://prettier.io/) for costistent formatting is encouraged.
 
-Use [ESLint](http://eslint.org/) with [@aptoma/eslint-config](https://github.com/aptoma/eslint-config) for verification.
-
-Apps using AngularJS should follow [John Papa's styleguide](https://github.com/johnpapa/angular-styleguide).
 
 #### SCSS
 
@@ -111,7 +106,7 @@ The `master` branch should represent a stable version of the code. Non-productio
 
 #### Commits
 
-Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on it's own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
+Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on its own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
 
 Commit messages should include an informative title, be written in the imperative style, and preferably be no longer than 50 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. See [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
 
@@ -125,6 +120,8 @@ Similar to commit messages, each pull request should cover an atomic change, but
 
 While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
+The person opening pull request should also be the one to merge, once reviewers have approved. Once merged, the changes should be deployed as soon as possible.
+
 ### Technology and tools
 
 Our goal for technology and tools is to strike the right balance between smart defaults and flexibility.
@@ -135,35 +132,15 @@ Experimenting is encouraged, but should be scoped to low-risk increments. As exp
 
 #### Backend
 
-We have two standard languages for backend services: PHP and Node.js. Proficiency in these can be assumed from all developers in Aptoma.
+The default choice for all backend services is Node.js.
 
-When using other languages than these, the benefits should clearly outweigh the extra costs related to maintenance and resource flexibility. As you cannot assume general knowledge in Aptoma, you must take extra steps to ease onboarding of potential new team members. As soon as it moves beyond a simple experiment, consult with Head of Technology to ensure a sustainable approach.
+When starting new projects, always use Node.js unless there are very compelling reasons not to. When choosing a different language, the benefits should clearly outweigh the extra costs related to maintenance and resource flexibility. As you cannot assume general knowledge in Aptoma, you must take extra steps to ease onboarding of potential new team members. As soon as it moves beyond a simple experiment, consult with Head of Technology to ensure a sustainable approach.
 
-##### PHP
+All Node.js projects should use a supported version. Target the latest LTS, and update your projects before the version you use is EOL.
 
-Our legacy PHP version is 5.3 with Apache 2.2. New servers will use 7.0 with Apache 2.4.
+[Hapi.js](http://hapijs.com/) is the recommended backed framework.
 
-Standard PHP tools and frameworks:
-
-- Composer for dependency management
-- PHPUnit for unit test
-- Silex as base micro framework
-- Twig for templates
-- Monolog for logging
-
-New projects are encouraged to be based off of [Silex Bootstrap](https://github.com/aptoma/silex-bootstrap).
-
-All tests should use PHPUnit, and projects should be set up so that you can run phpunit from the root directory to run all tests.
-
-You should use namespaces and Composer for autoloading.
-
-##### Node.js
-
-Prefer targeting the latest LTS release.
-
-[Hapi.js](http://hapijs.com/) is a recommended framework to use, but you are free to experiment with other options.
-
-Prefer using `npm` ask a task runner, and always define the `start` and `test` tasks.
+Use `npm` ask a task runner, and always define the `start` and `test` tasks.
 
 ##### Persistent storage (ie. DB)
 
@@ -173,27 +150,21 @@ Prefer database engines supported by Amazon RDS. Consider using DynamoDB.
 
 #### Frontend
 
-We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues!
-
-##### Module Loading
-
-Module loading in JavaScript is a moving target. With modules becoming a language feature in ES2015, the long term recommended solution is to use native ES2015 modules. [Look here](http://www.2ality.com/2014/09/es6-modules-final.html) for a thorough explanation. As ES2015 modules are not currently supported by any browsers, a transpiler will be required to use this syntax.
-
-For projects that can't/won't rely on a transpiler, the recommended module syntax is [CommonJS](http://www.commonjs.org/). This is the same syntax used by Node.js, and is more similar to ES2015 than AMD.
+We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues! Be careful about using shiny new tech for projects that may have short development time, but a long maintenance, as future you will dislike the shiny new tech that is now old, broken and unsupported.
 
 ##### Transpiling
 
-Transpilers should only be used when they bring clear benefits. An example of this is using [TypeScript](http://www.typescriptlang.org/) or [Babel](https://babeljs.io/) to allow using EcmaScript 6 features. When using transpilers, be mindful of polyfills in the generated code, and ensure that performance is good across all supported browsers.
+Transpilers should only be used when they bring clear benefits. Use [Babel](https://babeljs.io/) to allow adopting useful JavaScript features before they are supported by all targeted browsers. Don't use TypeScript.
 
-Using CSS preprocessors is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
+Using CSS preprocessors and postprocessers is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
 
 The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also consider using [PostCSS](https://github.com/postcss/postcss).
 
 ##### Browser support
 
-Any customer projects accessible by end users need to support whatever browsers the customer wants to support. For customer admin tools (ie. only used by their internal staff), we should push for only guaranteeing support for latest versions of Chrome and Firefox. For internal projects, we can assume latest versions of Chrome and Firefox.
+Any customer projects accessible by end users need to support whatever browsers the customer wants to support. Customer admin tools (ie. only used by their internal staff) and our internal tolls should support latest versions of Chrome and Firefox.
 
-When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. Legacy versions of IE must be supported according to requirements from our customers.
+When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. No version of Internet Explorer is formally supported.
 
 ### Testing
 
@@ -215,9 +186,9 @@ All projects should be integrated with a continuous integration server. Unless y
 
 ### Project Participants
 
-Designing and working alone on significant software project is not good. If this is the case go to management and kick them in the nuts.
+Designing and working alone on a significant software project is not good. If this is the case go to management and kick them in the nuts.
 
-If circumstances finds you working alone, designate a "co-pilot" who has basic familiarity with the project and can provide input and code reviews.
+You will often be working alone on a signifcant software project. To avoid being disturbed when you're sipping coctkails in Syden, make your code readable, provide good documentation, and be generous when _you_ need to dig into another person's solo project because they're off sipping cocktails in Syden.
 
 ### Code review
 
@@ -227,7 +198,7 @@ Commits should always be read and reflected on by another developer within reaso
 
 #### Multitenancy
 
-Always consider and prefer a multitenant design. If a full multitenant approach is not possible, consider [hybrid-tenancy](http://samnewman.io/patterns/deployment/hybrid-tenancy/).
+Always consider and prefer a multitenant design.
 
 #### Modularity and Microservices
 
