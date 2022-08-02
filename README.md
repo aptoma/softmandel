@@ -70,7 +70,7 @@ All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/f
 
 JavaScript code should implement Aptoma's ESLint config using [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
 
-Using [Prettier](https://prettier.io/) for costistent formatting is encouraged.
+Using [Prettier](https://prettier.io/) for consistent formatting is encouraged.
 
 
 #### SCSS
@@ -120,7 +120,7 @@ Similar to commit messages, each pull request should cover an atomic change, but
 
 While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
-The person opening pull request should also be the one to merge, once reviewers have approved. Once merged, the changes should be deployed as soon as possible.
+The person opening a pull request should also be the one to merge it, once reviewers have approved. Once merged, the changes should be deployed as soon as possible.
 
 ### Technology and tools
 
@@ -150,7 +150,7 @@ Prefer database engines supported by Amazon RDS. Consider using DynamoDB.
 
 #### Frontend
 
-We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues! Be careful about using shiny new tech for projects that may have short development time, but a long maintenance, as future you will dislike the shiny new tech that is now old, broken and unsupported.
+We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues! Be careful about using shiny new tech for projects that may have short a development time, but a long maintenance lifetime, as future you will dislike the shiny new tech that is now old, broken and unsupported.
 
 ##### Transpiling
 
