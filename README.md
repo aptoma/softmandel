@@ -167,13 +167,13 @@ When adding support for additional browsers infers very little overhead, we shou
 
 #### System identification
 
-All outgoing HTTP requests should identify the caller via a properly formatted `User-Agent` header. This header should at minimum describe the name, version and environment of the service. All Aptoma services should prefix the system name with `aptoma-`. Additionally, services may add arbitrary data as key-value pairs in parentheses. This format is specified by [RFC9110](https://www.rfc-editor.org/rfc/rfc9110#field.user-agent).
+All outgoing HTTP requests should identify the caller via a properly formatted `User-Agent` header. The first identifier in the header should be `aptoma`, followed by service name and version. Additionally, services may add arbitrary data as key-value pairs in parentheses, of which the minimum requirement is to describe the deployment environment. This format is specified by [RFC9110](https://www.rfc-editor.org/rfc/rfc9110#field.user-agent).
 
 Examples:
 
 ```
-User-Agent: aptoma-drpublish/1.2.3 (env:production)
-User-Agent: aptoma-squid/3.2.1 (env:development;source:580e0c33b5ec424880a39254)
+User-Agent: aptoma drpublish/1.2.3 (env:production)
+User-Agent: aptoma squid/3.2.1 (env:development;source:580e0c33b5ec424880a39254)
 ```
 
 As a general rule, avoid including information in `User-Agent` which already exists elsewhere in the request, or can be extracted from information in the request. Examples include the user account (which should be extracted from the authentication), or trace information (which, if included, should exist as standardized [trace headers](https://www.w3.org/TR/trace-context/)).
