@@ -14,6 +14,7 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 	- [Technology and tools](#technology-and-tools)
 		- [Backend](#backend)
 		- [Frontend](#frontend)
+		- [System identification](#system-identification)
 	- [Testing](#testing-2)
 	- [Mess Detection](#mess-detection)
 	- [Continuous Integration](#continuous-integration)
@@ -163,6 +164,19 @@ The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also
 Any customer projects accessible by end users need to support whatever browsers the customer wants to support. Customer admin tools (ie. only used by their internal staff) and our internal tools should support latest versions of Chrome and Firefox.
 
 When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. No version of Internet Explorer is formally supported.
+
+#### System identification
+
+All HTTP backends should identify themselves via a properly formatted `User-Agent` header. The first identifier in the header should be `aptoma`, followed by service name and optional version. Additionally, backends may add arbitrary data as key-value pairs in parentheses, of which the minimum requirement is to describe the deployment environment. This format is specified by [RFC9110](https://www.rfc-editor.org/rfc/rfc9110#field.user-agent).
+
+Examples:
+
+```
+User-Agent: aptoma drpublish/1.2.3 (env:production)
+User-Agent: aptoma squid/3.2.1 (env:development;source:580e0c33b5ec424880a39254)
+```
+
+As a general rule, avoid including information in `User-Agent` which already exists elsewhere in the request, or can be extracted from information in the request. Examples include the user account (which should be extracted from the authentication), or trace information (which, if included, should exist as standardized [trace headers](https://www.w3.org/TR/trace-context/)). Frontends should not overwrite the `User-Agent` set by the browser.
 
 ### Testing
 
