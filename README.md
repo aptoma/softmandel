@@ -153,7 +153,7 @@ We have no requirements for frontend JavaScript frameworks. As frontend technolo
 
 ##### Transpiling
 
-Transpilers should only be used when they bring clear benefits. Use [Babel](https://babeljs.io/) to allow adopting useful JavaScript features before they are supported by all targeted browsers. When a build step is already required by your project, you can use TypeScript.
+Transpilers should only be used when they bring clear benefits. When a build step is already required by your project, you can use TypeScript.
 
 Using CSS preprocessors and postprocessers is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
 
