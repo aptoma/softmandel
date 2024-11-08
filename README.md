@@ -119,7 +119,7 @@ Similar to commit messages, each pull request should cover an atomic change, but
 
 While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
-The person opening a pull request should also be the one to merge it, once reviewers have approved. Once merged, the changes should be deployed as soon as possible.
+The person opening a pull request should also be the one to merge it, once reviewers have approved. Once merged, the changes should be deployed as soon as possible. If there are any special considerations to made during deployment (like database migration, dependencies on other services being updated as well, complicated rollback), these should be documented in the pull request.
 
 ### Technology and tools
 
@@ -236,8 +236,8 @@ get different perspectives and shared learning opportunities.
 
 All projects shall have the deployment process fully documented with requirements and dependencies.
 
-All builds that are to be deployed should be tested before it is set into production. If the product has tests then it should be verified through the CI, this is preferably done automatically with some sort of deployment tool. For rare cases with products without tests there shall be a documented process on how to verify and or test the build upon deployment.
+All builds that are to be deployed should be tested before it is set into production. If the product has automated tests, it should be verified through the CI. This is preferably done automatically with some sort of deployment tool. For rare cases with products without tests, there shall be a documented process on how to verify and or test the build upon deployment.
 
 It is preferred that the deployment process is automated and contains a rollback option, and has documentation on how to verify the build and deployment as successful.
 
-The preferred method of deployment is [AWS CodeDeploy](https://aws.amazon.com/codedeploy/), powered by [AMP CLI](https://github.com/aptoma/amp-cli).
+It is the responsibility of the deployer to ensure that the deployed changes work as expected after deployment. This may include manual testing, automated testing, and monitoring error logs. Deployments should not be made unless the deployer can be available for monitoring and possible rollback until they are condifident about the correctness of the deployed code.
