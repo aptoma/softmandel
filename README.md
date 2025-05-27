@@ -192,7 +192,7 @@ For JavaScript we use [ESLint](http://eslint.org) with [@aptoma/eslint-config](h
 
 ### Continuous Integration
 
-All projects should be integrated with a continuous integration server. Unless you have non-negotiable needs that [Travis CI](https://magnum.travis-ci.com/) can't meet, use Travis CI. Never merge or deploy failing builds.
+All projects should be integrated with a continuous integration server. Unless you have non-negotiable needs that [GitHub Actions](https://github.com/features/actions) can't meet, use GitHub Actions. Never merge or deploy failing builds.
 
 ## Application Design and Life Cycle
 
