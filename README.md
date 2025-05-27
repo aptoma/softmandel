@@ -63,7 +63,7 @@ When there’s an industry standard coding style for a language, we should adopt
 
 #### PHP
 
-All PHP code should conform to the [PSR-2 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
+All PHP code should conform to the [PSR-12 standard](https://www.php-fig.org/psr/psr-12/).
 
 #### JavaScript
 
