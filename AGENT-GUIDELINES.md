@@ -10,7 +10,7 @@ Read before writing. Adopt the existing codebase's conventions — naming, patte
 
 ## Code Quality
 
-- Follow the coding style configured for the project. Run the project's linter before committing. Do not commit code with lint errors.
+- Follow the coding style configured for the project. Run the project's linter before committing. Do not commit code with lint errors. Biome is the preferred linter and formatter for JavaScript and TypeScript. Use Prettier only for languages Biome does not support.
 - Use TypeScript for all non-trivial JavaScript/TypeScript code. Do not introduce untyped code into a typed codebase. Do not add `any` types or `@ts-ignore` without justification.
 - Do not add comments that restate what the code does. Only comment non-obvious intent or constraints.
 - Do not add, remove, or upgrade dependencies without explicit approval. Prefer existing dependencies and standard library features over new packages. When a dependency would genuinely help, propose it with justification — but do not pull in libraries for things that can be solved with a few lines of code.
@@ -48,7 +48,7 @@ Read before writing. Adopt the existing codebase's conventions — naming, patte
 
 ## Technology
 
-- Node.js is the default backend runtime. Do not introduce other server runtimes without explicit approval.
+- Node.js is the default backend runtime. Deno and Bun are acceptable for scripts and experimentation, but do not use them for production services without explicit approval.
 - Write automation scripts in JavaScript, TypeScript, or shell script. Do not use other languages for scripting.
 - Prefer database engines supported by Amazon RDS. Do not introduce new database technologies without explicit approval.
 - Do not introduce application frameworks (React, Vue, Angular, etc.) beyond what the project already uses. Libraries and smaller dependencies are acceptable with explicit approval.

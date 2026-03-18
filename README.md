@@ -63,9 +63,7 @@ When there's an industry standard coding style for a language, we should adopt t
 
 #### JavaScript and TypeScript
 
-JavaScript and TypeScript code should implement Aptoma's ESLint config using [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
-
-Using [Prettier](https://prettier.io/) or [Biome](https://biomejs.dev/) for consistent formatting is encouraged.
+Use [Biome](https://biomejs.dev/) for linting and formatting. For languages not supported by Biome (e.g. SCSS), use [Prettier](https://prettier.io/) for formatting.
 
 #### PHP
 
@@ -143,6 +141,8 @@ The default choice for all backend services is Node.js.
 When starting new projects, always use Node.js unless there are very compelling reasons not to. When choosing a different language, the benefits should clearly outweigh the extra costs related to maintenance and resource flexibility. As you cannot assume general knowledge in Aptoma, you must take extra steps to ease onboarding of potential new team members. As soon as it moves beyond a simple experiment, consult with Head of Technology to ensure a sustainable approach.
 
 All Node.js projects should use a supported version. Target the latest LTS, and update your projects before the version you use is EOL.
+
+Alternative runtimes like [Deno](https://deno.land/) and [Bun](https://bun.sh/) are acceptable for scripts and experimentation, but be cautious before putting them into production — the same considerations about maintenance and onboarding apply.
 
 [Hapi.js](http://hapijs.com/) is the recommended backend framework. [Hono](https://hono.dev/) is a likely successor and encouraged for experimentation. Smaller applications may not need a server framework at all — use the built-in `node:http` module or equivalent when a framework would be overhead.
 
