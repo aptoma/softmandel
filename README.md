@@ -144,7 +144,7 @@ All Node.js projects should use a supported version. Target the latest LTS, and 
 
 Alternative runtimes like [Deno](https://deno.land/) and [Bun](https://bun.sh/) are acceptable for scripts and experimentation, but be cautious before putting them into production — the same considerations about maintenance and onboarding apply.
 
-[Hapi.js](http://hapijs.com/) is the recommended backend framework. [Hono](https://hono.dev/) is a likely successor and encouraged for experimentation. Smaller applications may not need a server framework at all — use the built-in `node:http` module or equivalent when a framework would be overhead.
+When choosing a backend framework, prioritize solid TypeScript support; [Hono](https://hono.dev/) is a promising option. Smaller applications may not need a server framework at all — use the built-in `node:http` module or equivalent when a framework would be overhead.
 
 ##### Scripts and task automation
 
