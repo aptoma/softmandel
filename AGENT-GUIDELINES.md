@@ -49,7 +49,7 @@ Read before writing. Adopt the existing codebase's conventions — naming, patte
 ## Technology
 
 - Use the project's established backend runtime. For PHP projects, continue with PHP. For all other backend services, Node.js is the default. Deno and Bun are acceptable for scripts and experimentation, but do not use them for production services without explicit approval.
-- Write automation scripts in JavaScript, TypeScript, or shell script. Do not use other languages for scripting.
+- Write automation scripts in JavaScript, TypeScript, shell script, or the project's native language. Do not use other languages for scripting.
 - Prefer database engines supported by Amazon RDS. Do not introduce new database technologies without explicit approval.
 - Do not introduce application frameworks (React, Vue, Angular, etc.) beyond what the project already uses. Libraries and smaller dependencies are acceptable with explicit approval.
 
