@@ -112,7 +112,7 @@ The structure is `type(scope): subject`. Common types include:
 - `test`: Adding missing tests or correcting existing tests
 - `chore`: Changes to the build process or auxiliary tools and libraries
 
-The subject should be written in the imperative style, and preferably be under 72 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. See [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
+The subject should be written in the imperative style, and preferably be under 72 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. Use the body to briefly explain *why* the change was made when it isn't obvious from the diff. Broader context — business motivation, design decisions, trade-offs — belongs in PR descriptions, ADRs, or issue trackers. See [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
 
 If relevant, use [GitHub flavoured markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) to link to commits, issues, and repos. For example, include "Fix #13" in the message body to have issue #13 of the repository be automatically closed when the commit is merged into the main development branch.
 
@@ -148,7 +148,7 @@ When choosing a backend framework, prioritize solid TypeScript support; [Hono](h
 
 ##### Scripts and task automation
 
-Automation scripts and build tasks should be written in JavaScript, TypeScript, or shell script, so that all developers can read, debug, and modify them. Always define `start` and `test` scripts in `package.json`.
+Automation scripts and build tasks should be written in JavaScript, TypeScript, shell script, or the project's native language, so that all developers can read, debug, and modify them. Always define `start` and `test` scripts in `package.json`.
 
 ##### TypeScript
 
