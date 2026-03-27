@@ -195,9 +195,7 @@ All projects should have tests. Your test coverage should give all contributing 
 
 All projects should use linters to enforce coding style and detect code quality issues such as excessive complexity, unused variables, and questionable patterns. Linter configurations should be tuned per project and revisited as the project evolves.
 
-For PHP we use [PHPMD](http://phpmd.org) with [custom rules](https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml) alongside [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) for PSR-12 enforcement.
-
-For JavaScript and TypeScript we use [Biome](https://biomejs.dev/) for linting and formatting.
+For JavaScript and TypeScript, use [Biome](https://biomejs.dev/) for linting and formatting.
 
 ### Continuous Integration
 
