@@ -15,15 +15,15 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 		- [Backend](#backend)
 		- [Frontend](#frontend)
 		- [System identification](#system-identification)
-	- [Testing](#testing-2)
-	- [Mess Detection](#mess-detection)
+	- [Testing](#testing)
+	- [Linting and Code Quality](#linting-and-code-quality)
 	- [Continuous Integration](#continuous-integration)
 - [Application Design and Life Cycle](#application-design-and-life-cycle)
 	- [Project participants](#project-participants)
 	- [Code review](#code-review)
 	- [Design Considerations](#design-considerations)
 		- [Multitenancy](#multitenancy)
-		- [Modularity and Microservices](#modularity-and-microservices)
+		- [Modularity and Service Architecture](#modularity-and-service-architecture)
 	- [Refactoring](#refactoring)
 	    - [Opportunistic Refactoring](#opportunistic-refactoring)
 	    - [Scheduled Refactoring](#scheduled-refactoring)
@@ -33,12 +33,12 @@ SOFTware MANagement and DEveLopment Standards in Aptoma.
 
 ### Versioning
 
-All services should use versioning, and follow the [Semantic Versioning Standard](http://semver.org).
+All services should use versioning, and follow the [Semantic Versioning Standard](https://semver.org).
 
 
 ### Release notes
 
-Every versioned release should have release notes detailing the changes, additions, removals and fixes contained in the release. Release notes should use the following terms to describe changes:
+Every versioned release should have release notes detailing the changes, additions, removals, and fixes contained in the release. Release notes should use the following terms to describe changes:
 
 | Keyword         | Description |
 |-----------------|-------------|
@@ -47,7 +47,7 @@ Every versioned release should have release notes detailing the changes, additio
 | Removed         | Information about features which have been removed. Link to relevant deprecation doc(s). Make sure to refer to other parts of the release notes if a feature has been removed in favor of something else. |
 | Improved        | Minor tweaks and improvements that neither change features nor fix specific bugs. Performance improvements, slight style tweaks and similar adjustments all fall under this category. |
 | Fixed           | Known or reported issues which have been resolved. When detailing the fix, prefer "should not" to "will not", "issue" to "bug" and "resolved" to "fixed". |
-| Deprecated      | Features which are marked for deletion. Add link to any replacement features' doc(s), along with any potential upgrade paths. For projects following semantic versioning, deprecated features should be scheduled for removal in the next major version, and should adhere to [SAMBA Upgrade terms](https://docs.google.com/document/d/1H5e3c5LTOrB3s9MaoRGz0AGDTkmMTsdQuks7SxpWR_o/edit#heading=h.ay7frjyq9xs6).
+| Deprecated      | Features which are marked for deletion. Add link to any replacement features' doc(s), along with any potential upgrade paths. For projects following semantic versioning, deprecated features should be scheduled for removal in the next major version, and should adhere to [SAMBA Upgrade terms](https://docs.google.com/document/d/1H5e3c5LTOrB3s9MaoRGz0AGDTkmMTsdQuks7SxpWR_o/edit#heading=h.ay7frjyq9xs6). |
 
 #### Other guidelines
 
@@ -59,35 +59,27 @@ The target audience for "Developer Notes" is the **technical staff** of the cust
 
 ### Coding Style
 
-When there’s an industry standard coding style for a language, we should adopt that. When multiple established standards exists, we should pick the one that most matches our current style, unless we all agree that some other standard is preferred.
+When there's an industry standard coding style for a language, we should adopt that. When multiple established standards exist, we should pick the one that most matches our current style, unless we all agree that some other standard is preferred.
+
+#### JavaScript and TypeScript
+
+Use [Biome](https://biomejs.dev/) for linting and formatting. For languages not supported by Biome (e.g. SCSS), use [Prettier](https://prettier.io/) for formatting.
 
 #### PHP
 
 All PHP code should conform to the [PSR-12 standard](https://www.php-fig.org/psr/psr-12/).
 
-#### JavaScript
-
-JavaScript code should implement Aptoma's ESLint config using [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
-
-Using [Prettier](https://prettier.io/) for consistent formatting is encouraged.
-
-
 #### SCSS
 
-SCSS code should use the default rules of [SCSS Lint](https://github.com/causes/scss-lint) with the exception of four spaces for indenting. A customized config file is located [here](https://github.com/aptoma/aptoma-bootstrap/blob/master/.scss-lint.yml). `scss-lint` can also be used for linting pure CSS files, and any recommendations for SCSS is also valid for CSS.
+SCSS code should be linted with [Stylelint](https://stylelint.io/) using `stylelint-config-standard-scss`. Any recommendations for SCSS are also valid for plain CSS.
 
 #### Other Languages
 
-For other languages you must conform to some defined coding style, preferably
-with one that has tools. Here are a few recommendations:
-
-* Twig: http://twig.sensiolabs.org/doc/coding_standards.html
-* Ruby: https://github.com/bbatsov/ruby-style-guide
-* Scala: http://docs.scala-lang.org/style/
+For other languages you must conform to some defined coding style, preferably one that has tooling support. Use the most widely adopted standard for the language in question.
 
 ### Source Control
 
-All projects should use GIT for version control.
+All projects should use Git for version control.
 
 All repositories should have a remote on GitHub.com.
 
@@ -105,21 +97,34 @@ The `master` branch should represent a stable version of the code. Non-productio
 
 #### Commits
 
-Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on its own. Every single commit should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
+Every commit should represent an atomic discrete change. Split unrelated changes into multiple commits, and try to make every commit able to stand on its own. Every commit on `master` should represent a working state of the application, so that regressions can easily be located with tools like [git bisect](https://git-scm.com/docs/git-bisect).
 
-Commit messages should include an informative title, be written in the imperative style, and preferably be no longer than 50 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. See [A Note About Git Commit Messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
+Commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. This provides an easy set of rules for creating an explicit commit history.
 
-If relevant, use [GitHub flavoured markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) to link to commits, issues and repos. For example, include "Fix #13" in the message body to have issue #13 of the repository be automatically closed when the commit is merged into the main development branch.
+The structure is `type(scope): subject`, where `scope` is optional. Common types include:
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance
+- `test`: Adding missing tests or correcting existing tests
+- `chore`: Changes to the build process or auxiliary tools and libraries
+
+The subject should be written in the imperative style, and preferably be under 72 characters. If a message body is required to explain more about the commit, add a blank line between the title and the body. Use the body to briefly explain *why* the change was made when it isn't obvious from the diff. Broader context — business motivation, design decisions, trade-offs — belongs in PR descriptions, ADRs, or issue trackers. See [A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) for more about the reasoning behind this.
+
+If relevant, use [GitHub flavoured markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/) to link to commits, issues, and repos. For example, include "Fix #13" in the message body to have issue #13 of the repository be automatically closed when the commit is merged into the main development branch.
 
 #### Pull Requests
 
 GitHub pull requests is the recommended tool for code review.
 
-Similar to commit messages, each pull request should cover an atomic change, but it's OK for a pull request to cover a set of related commits. As a pull request will either be approved or rejected as a whole, changes that are not linked to each other is best split into multiple PRs. What belongs together in a pull request is not always clear. Use your best judgment, and be pragmatic.
+Similar to commit messages, each pull request should cover an atomic change, but it's OK for a pull request to cover a set of related commits. As a pull request will either be approved or rejected as a whole, changes that are not linked to each other are best split into multiple PRs. What belongs together in a pull request is not always clear. Use your best judgment, and be pragmatic.
 
 While a PR is being reviewed, feel free to add a lot of commits or just amend and force push. Before merging, the branch should be rebased into a set of atomic discrete commits, as described above.
 
-The person opening a pull request should also be the one to merge it, once reviewers have approved. Once merged, the changes should be deployed as soon as possible. If there are any special considerations to made during deployment (like database migration, dependencies on other services being updated as well, complicated rollback), these should be documented in the pull request.
+The person who initiated a pull request is responsible for seeing it through to merge and deployment, once reviewers have approved. Once merged, the changes should be deployed as soon as possible. If there are any special considerations to be made during deployment (like database migration, dependencies on other services being updated as well, complicated rollback), these should be documented in the pull request.
 
 ### Technology and tools
 
@@ -137,9 +142,17 @@ When starting new projects, always use Node.js unless there are very compelling 
 
 All Node.js projects should use a supported version. Target the latest LTS, and update your projects before the version you use is EOL.
 
-[Hapi.js](http://hapijs.com/) is the recommended backend framework.
+Alternative runtimes like [Deno](https://deno.land/) and [Bun](https://bun.sh/) are acceptable for scripts and experimentation, but be cautious before putting them into production — the same considerations about maintenance and onboarding apply.
 
-Use `npm` ask a task runner, and always define the `start` and `test` tasks.
+When choosing a backend framework, prioritize solid TypeScript support; [Hono](https://hono.dev/) is a promising option. Smaller applications may not need a server framework at all — use the built-in `node:http` module or equivalent when a framework would be overhead.
+
+##### Scripts and task automation
+
+Automation scripts and build tasks should be written in JavaScript, TypeScript, shell script, or the project's native language, so that all developers can read, debug, and modify them. Always define `start` and `test` scripts in `package.json`.
+
+##### TypeScript
+
+TypeScript is strongly encouraged for all non-trivial projects. It improves code quality, discoverability, and onboarding. For simple scripts or prototypes, plain JavaScript is fine.
 
 ##### Persistent storage (ie. DB)
 
@@ -149,13 +162,9 @@ Prefer database engines supported by Amazon RDS. Consider using DynamoDB.
 
 #### Frontend
 
-We have no requirements for frontend JavaScript frameworks. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues! Be careful about using shiny new tech for projects that may have short a development time, but a long maintenance lifetime, as future you will dislike the shiny new tech that is now old, broken and unsupported.
+We have no strict requirements for frontend JavaScript frameworks. Framework-free solutions are preferred when practical. As frontend technologies are in constant development, we encourage responsible experimentation. Talk to your colleagues! Be careful about using shiny new tech for projects that may have a short development time, but a long maintenance lifetime, as future you will dislike the shiny new tech that is now old, broken, and unsupported.
 
-##### Transpiling
-
-Transpilers should only be used when they bring clear benefits. When a build step is already required by your project, you can use TypeScript.
-
-Using CSS preprocessors and postprocessers is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don’t use the most esoteric features, unless it clearly adds value (“because you can” != value).
+Using CSS preprocessors and postprocessors is OK, and even encouraged. Maintainability and quality of processed code is still more important, though. Don't use the most esoteric features, unless it clearly adds value ("because you can" != value).
 
 The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also consider using [PostCSS](https://github.com/postcss/postcss).
 
@@ -163,7 +172,7 @@ The recommended CSS preprocessor is [SCSS](http://www.sass-lang.com/guide). Also
 
 Any customer projects accessible by end users need to support whatever browsers the customer wants to support. Customer admin tools (ie. only used by their internal staff) and our internal tools should support latest versions of Chrome and Firefox.
 
-When adding support for additional browsers infers very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard. No version of Internet Explorer is formally supported.
+When adding support for additional browsers incurs very little overhead, we should support as broadly as possible. The two latest versions of all major browsers is the industry standard.
 
 #### System identification
 
@@ -182,13 +191,11 @@ As a general rule, avoid including information in `User-Agent` which already exi
 
 All projects should have tests. Your test coverage should give all contributing developers high confidence of the correctness of the code.
 
-### Mess Detection
+### Linting and Code Quality
 
-Mess detection is required since they forces us to recognize questionable elements of our code. The limit values used should be optimized for each project, and should change as time goes on and we learn more about how they affect our code.
+All projects should use linters to enforce coding style and detect code quality issues such as excessive complexity, unused variables, and questionable patterns. Linter configurations should be tuned per project and revisited as the project evolves.
 
-For PHP application we use [PHPMD](http://phpmd.org) with [https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml](https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml)
-
-For JavaScript we use [ESLint](http://eslint.org) with [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
+For JavaScript and TypeScript, use [Biome](https://biomejs.dev/) for linting and formatting.
 
 ### Continuous Integration
 
@@ -200,11 +207,11 @@ All projects should be integrated with a continuous integration server. Unless y
 
 Designing and working alone on a significant software project brings risks. We aspire to always have more than one set of eyeballs on every problem. In reality, we will often have projects with a lead developer that has so much domain specific knowledge that it's unrealistic for other developers to contribute on an ongoing basis.
 
-You should work to make it possible for someone else to take over in your abscence. Following the processes described in SOFT MANDEL is our main tool for that. If you find yourself doing long-lived solo projects, keep management informed, so that risks can be accounted for.
+You should work to make it possible for someone else to take over in your absence. Following the processes described in SOFT MANDEL is our main tool for that. If you find yourself doing long-lived solo projects, keep management informed, so that risks can be accounted for.
 
 ### Code review
 
-Commits should always be read and reflected on by another developer within reasonable time. Use pull requests on GitHub.
+Commits should always be read and reflected on by another developer within a reasonable time. Use pull requests on GitHub. When code is AI-generated, review with particular attention to architectural fit, security, unnecessary complexity, and whether the tests validate the right things.
 
 ### Design Considerations
 
@@ -212,9 +219,9 @@ Commits should always be read and reflected on by another developer within reaso
 
 Always consider and prefer a multitenant design.
 
-#### Modularity and Microservices
+#### Modularity and Service Architecture
 
-You should structure your project into modules with clearly defined responsibilites. Consider breaking certain modules out as separate loosely coupled microservices, possibly reusable across products.
+Structure your project into modules with clearly defined responsibilities. Auxiliary services — such as specialized workers, integration adapters, or independently deployable tools — should be separated from the core application when the separation provides clear value (independent scaling, different deployment cadence, distinct team ownership). Avoid splitting a monolith purely for architectural fashion; a well-structured monolith is preferable to a poorly justified distributed system.
 
 ### Refactoring
 
@@ -224,13 +231,11 @@ Refactoring should be part of the daily workflow. A good practice to follow is t
 
 > always leave the code behind in a better state than you found it
 
-More details and advice is found at [Martin Fowler's Bliki](http://martinfowler.com/bliki/OpportunisticRefactoring.html)
+Keep opportunistic refactoring proportional to the task at hand. If you're fixing a bug, clean up the immediate surroundings — don't restructure the module. More details and advice is found at [Martin Fowler's Bliki](http://martinfowler.com/bliki/OpportunisticRefactoring.html).
 
 #### Scheduled Refactoring
 
-When a larger refactoring project is needed, participants from other projects
-should be involved both at the start and at the end of the project, in order to
-get different perspectives and shared learning opportunities.
+When a larger refactoring project is needed, participants from other projects should be involved both at the start and at the end of the project, to get different perspectives and shared learning opportunities.
 
 ### Deployment Process
 
@@ -240,4 +245,4 @@ All builds that are to be deployed should be tested before it is set into produc
 
 It is preferred that the deployment process is automated and contains a rollback option, and has documentation on how to verify the build and deployment as successful.
 
-It is the responsibility of the deployer to ensure that the deployed changes work as expected after deployment. This may include manual testing, automated testing, and monitoring error logs. Deployments should not be made unless the deployer can be available for monitoring and possible rollback until they are condifident about the correctness of the deployed code.
+It is the responsibility of the deployer to ensure that the deployed changes work as expected after deployment. This may include manual testing, automated testing, and monitoring error logs. Deployments should not be made unless the deployer can be available for monitoring and possible rollback until they are confident about the correctness of the deployed code.
