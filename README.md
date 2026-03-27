@@ -197,7 +197,7 @@ All projects should use linters to enforce coding style and detect code quality 
 
 For PHP we use [PHPMD](http://phpmd.org) with [custom rules](https://github.com/aptoma/aptoma-bootstrap/blob/master/phpmd.xml) alongside [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) for PSR-12 enforcement.
 
-For JavaScript and TypeScript we use [ESLint](http://eslint.org) with [@aptoma/eslint-config](https://github.com/aptoma/eslint-config).
+For JavaScript and TypeScript we use [Biome](https://biomejs.dev/) for linting and formatting.
 
 ### Continuous Integration
 
