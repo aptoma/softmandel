@@ -101,7 +101,7 @@ Every commit should represent an atomic discrete change. Split unrelated changes
 
 Commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/) specification. This provides an easy set of rules for creating an explicit commit history.
 
-The structure is `type(scope): subject`. Common types include:
+The structure is `type(scope): subject`, where `scope` is optional. Common types include:
 
 - `feat`: A new feature
 - `fix`: A bug fix
